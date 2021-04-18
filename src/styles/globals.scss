@@ -8,7 +8,9 @@ body {
 .button {
 	@apply rounded-full tinted-2 w-12 h-12 flex justify-center items-center shadow-lg;
 }
-
+.search-input {
+	@apply rounded-full w-full focus:outline-none focus:border-blue-300 transition-colors bg-transparent dark:border-white border px-4 py-2;
+}
 .background {
 	@apply bg-white dark:bg-gray-800;
 }

@@ -14,4 +14,11 @@ module.exports = {
 
 		return config;
 	},
+	redirects: async () => [
+		{
+			source: "/search",
+			destination: "/",
+			permanent: false,
+		},
+	],
 };
