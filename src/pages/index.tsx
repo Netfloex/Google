@@ -3,7 +3,9 @@ import Logo from "../svg/google.svg";
 
 import DarkModeSwitch from "../components/DarkModeSwitch";
 
-const Home = () => (
+import { FC } from "react";
+
+const Home: FC = () => (
 	<>
 		<Head>
 			<title>Google Proxy</title>

@@ -1,7 +1,9 @@
 import { useTheme } from "next-themes";
 import { MdBrightnessHigh as Sun, MdBrightness3 as Moon } from "react-icons/md";
 
-const DarkModeSwitch = () => {
+import { FC } from "react";
+
+const DarkModeSwitch: FC = () => {
 	const { theme, setTheme } = useTheme();
 	return (
 		<div>

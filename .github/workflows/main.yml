@@ -15,5 +15,7 @@ jobs:
                   node-version: 12
             - name: Install Dependencies
               run: yarn install
-            - name: Check for errors
-              run: yarn build
+            - name: Check for type errors
+              run: yarn types
+            - name: ESLint Check
+              run: yarn lint
