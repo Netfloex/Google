@@ -1,3 +1,20 @@
 body {
-	@apply bg-gray-900 text-white;
+	@apply bg-gray-200 text-gray-900;
+}
+.dark body {
+	@apply bg-gray-900 text-gray-200;
+}
+
+.button {
+	@apply rounded-full tinted-2 w-12 h-12 flex justify-center items-center shadow-lg;
+}
+
+.background {
+	@apply bg-white dark:bg-gray-800;
+}
+.tinted {
+	@apply bg-gray-50 dark:bg-gray-750;
+}
+.tinted-2 {
+	@apply bg-gray-100 dark:bg-gray-775;
 }

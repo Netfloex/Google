@@ -1,11 +1,18 @@
 module.exports = {
 	purge: ["./src/pages/**/*.{tsx}", "./src/components/**/*.{tsx}"],
-	darkMode: false,
+	darkMode: "class",
 	theme: {
-		extend: {},
+		extend: {
+			colors: {
+				"gray-750": "#283547",
+				"gray-775": "#243141",
+			},
+		},
 	},
 	variants: {
-		extend: {},
+		extend: {
+			display: ["dark"],
+		},
 	},
 	plugins: [],
 };

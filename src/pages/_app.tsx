@@ -1,8 +1,14 @@
 import "../styles/globals.scss";
 import "tailwindcss/tailwind.css";
 
+import { ThemeProvider } from "next-themes";
+
 function App({ Component, pageProps }) {
-	return <Component {...pageProps} />;
+	return (
+		<ThemeProvider attribute="class">
+			<Component {...pageProps} />
+		</ThemeProvider>
+	);
 }
 
 export default App;
