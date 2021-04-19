@@ -8,7 +8,11 @@ import Head from "next/head";
 
 import { FC } from "react";
 
-export const Page: FC<{ title: string; description: string }> = ({ title, description, children }) => (
+export const Page: FC<{ title: string; description: string }> = ({
+	title,
+	description,
+	children,
+}) => (
 	<>
 		<Head>
 			<title>{title}</title>

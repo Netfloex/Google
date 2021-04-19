@@ -9,11 +9,12 @@ export const DarkModeSwitch: FC = () => {
 		<>
 			<div className="float-right my-3 mr-3">
 				<button
-					onMouseDown={e => {
+					onMouseDown={(e) => {
 						e.preventDefault();
 						setTheme(theme == "dark" ? "light" : "dark");
 					}}
-					className="button text-gray-700 dark:text-gray-300">
+					className="button text-gray-700 dark:text-gray-300"
+				>
 					<Moon className="block dark:hidden w-7 h-7" />
 					<Sun className="hidden dark:block  w-7 h-7" />
 				</button>

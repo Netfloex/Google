@@ -8,10 +8,19 @@ export const SearchInput: FC<{ className?: string; value?: string }> = ({ classN
 	const router = useRouter();
 	const input = useRef<HTMLInputElement>(null);
 
-	const keyDown: KeyboardEventHandler = event => {
+	const keyDown: KeyboardEventHandler = (event) => {
 		if (event.key == "Enter" && input.current) {
 			router.push("/search/" + input.current.value);
 		}
 	};
-	return <input autoFocus type="text" ref={input} defaultValue={value} className={`search-input ${className ?? ""}`.trim()} onKeyDown={keyDown} />;
+	return (
+		<input
+			autoFocus
+			type="text"
+			ref={input}
+			defaultValue={value}
+			className={`search-input ${className ?? ""}`.trim()}
+			onKeyDown={keyDown}
+		/>
+	);
 };

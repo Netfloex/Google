@@ -1,0 +1,11 @@
+node_modules
+README.md
+.vscode
+package-lock.json
+LICENSE
+.next
+yarn.lock
+.env.example
+.env.local
+.prettierrc.json
+next-env.d.ts

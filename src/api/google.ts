@@ -26,7 +26,7 @@ export const search = async (query: string): Promise<Search> => {
 			searchTime: data.searchInformation.formattedSearchTime,
 			totalResults: data.searchInformation.formattedTotalResults,
 		},
-		results: data.items?.map(item => ({
+		results: data.items?.map((item) => ({
 			title: item.title,
 			href: item.link,
 			displayLink: item.formattedUrl,
