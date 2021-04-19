@@ -6,7 +6,7 @@ export type Search = {
 };
 type Query = {
 	search: string;
-	corrected: string | false;
+	corrected: string | null;
 	searchTime: string;
 	totalResults: string;
 };
@@ -15,6 +15,6 @@ export type Result = {
 	href: string;
 	displayLink: string;
 	snippet: string;
-	cacheId: string | false;
-	pageMap: PageMap | false;
+	cacheId: string | null;
+	pageMap: PageMap | null;
 };
