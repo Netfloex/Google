@@ -1,22 +1,25 @@
 body {
-	@apply bg-gray-200 text-gray-900;
+	@apply bg-gray-100 text-gray-900;
 }
 .dark body {
 	@apply bg-gray-900 text-gray-200;
-}
-
-.button {
-	@apply rounded-full tinted-2 w-12 h-12 flex justify-center items-center shadow-lg;
-}
-.search-input {
-	@apply rounded-full w-full focus:outline-none focus:border-blue-300 transition-colors bg-transparent dark:border-white border px-4 py-2;
 }
 .background {
 	@apply bg-white dark:bg-gray-800;
 }
 .tinted {
-	@apply bg-gray-50 dark:bg-gray-750;
+	@apply bg-gray-50 dark:bg-gray-775;
 }
-.tinted-2 {
-	@apply bg-gray-100 dark:bg-gray-775;
+
+.button {
+	@extend .tinted;
+	@apply rounded-full w-12 h-12 flex justify-center items-center shadow-lg;
+}
+
+.search-input {
+	@apply rounded-full w-full;
+	@apply focus:outline-none focus:border-blue-300 transition-colors;
+	@apply border-gray-200 dark:border-gray-400 border;
+	@apply bg-transparent shadow-md dark:shadow-none;
+	@apply px-4 py-2;
 }

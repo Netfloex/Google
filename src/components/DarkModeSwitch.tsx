@@ -6,7 +6,7 @@ import { FC } from "react";
 export const DarkModeSwitch: FC = () => {
 	const { theme, setTheme } = useTheme();
 	return (
-		<div>
+		<>
 			<div className="float-right my-3 mr-3">
 				<button
 					onMouseDown={e => {
@@ -19,6 +19,6 @@ export const DarkModeSwitch: FC = () => {
 				</button>
 			</div>
 			<div className="clear-both"></div>
-		</div>
+		</>
 	);
 };
