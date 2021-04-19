@@ -8,8 +8,9 @@ const Search: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ res,
 	if (!res) {
 		return <></>;
 	}
+
 	return (
-		<Page title={`${res.queries.request[0].searchTerms} - Zoeken`} description={"Custom Google Search"}>
+		<Page title={`${res.query.search} - Zoeken`} description={"Custom Google Search"}>
 			<div className="p-4 flex items-center">
 				<Link href="/">
 					<a className="w-24 mx-4">
@@ -23,22 +24,21 @@ const Search: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ res,
 					<DarkModeSwitch />
 				</div>
 			</div>
-			{res.searchInformation.formattedTotalResults} resultaten in {res.searchInformation.formattedSearchTime} seconden
+			{res.query.totalResults} resultaten in {res.query.searchTime} seconden
 			<br />
-			{res.spelling && (
+			{res.query.corrected && (
 				<>
 					<br />
-					Bedoelde u: <Link href={res.spelling.correctedQuery}>{res.spelling.correctedQuery}</Link>
+					Bedoelde u: <Link href={res.query.corrected}>{res.query.corrected}</Link>
 					<br />
 				</>
 			)}
 			<br />
-			{res.items &&
-				res.items.map(item => (
+			{res.results &&
+				res.results.map((item, i) => (
 					<Result //
 						item={item}
-						href={item.link}
-						key={item.cacheId}
+						key={item.cacheId || i}
 					/>
 				))}
 		</Page>

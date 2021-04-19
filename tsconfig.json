@@ -8,6 +8,9 @@
       "@api": [
         "src/imports/api"
       ],
+      "@types/*": [
+        "src/@types/*"
+      ],
       "@src/*": [
         "src/*"
       ]

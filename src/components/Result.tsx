@@ -1,11 +1,11 @@
 import Link from "next/link";
 
-import { Item } from "@src/@types/google";
+import { Result as Item } from "@src/@types/google";
 
 import { FC } from "react";
 
-export const Result: FC<{ item: Item; href: string }> = ({ item }) => (
-	<Link href={item.link}>
+export const Result: FC<{ item: Item }> = ({ item }) => (
+	<Link href={item.href}>
 		<a>
 			{item.displayLink}
 			<br />
