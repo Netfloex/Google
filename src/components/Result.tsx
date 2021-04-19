@@ -7,15 +7,22 @@ import { FC } from "react";
 export const Result: FC<{ item: Item }> = ({ item }) => (
 	<Link href={item.href}>
 		<a>
-			{item.displayLink}
-			<br />
+			<div className="p-4 flex items-center">
+				<div className="w-24 mx-4">
+					{item.pageMap && <img src={item.pageMap.cse_thumbnail?.[0].src} alt="" />}
+				</div>
+				<div className="flex-1">
+					{item.displayLink}
+					<br />
 
-			{item.title}
+					{item.title}
 
-			<br />
-			{item.snippet}
-			<br />
-			<br />
+					<br />
+					{item.snippet}
+					<br />
+					<br />
+				</div>
+			</div>
 		</a>
 	</Link>
 );

@@ -1,3 +1,5 @@
+import { PageMap } from "./googleRequest";
+
 export type Search = {
 	query: Query;
 	results?: Result[];
@@ -15,8 +17,4 @@ export type Result = {
 	snippet: string;
 	cacheId: string | false;
 	pageMap: PageMap | false;
-};
-type PageMap = {
-	cse_thumnail?: [{ src: string }];
-	metatags?: [Record<string, string>];
 };

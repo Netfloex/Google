@@ -25,26 +25,19 @@ interface Item {
 	cacheId?: string;
 	formattedUrl: string;
 	htmlFormattedUrl: string;
-	pagemap: Pagemap;
+	pagemap: PageMap;
 	mime?: string;
 	fileFormat?: string;
 }
-interface Pagemap {
-	cse_thumbnail?: CSEThumbnail[];
+interface PageMap {
+	cse_thumbnail?: [Image];
 	metatags: [Record<string, string>];
-	cse_image?: CSEImage[];
+	cse_image?: [Image];
 }
 
-interface CSEImage {
+interface Image {
 	src: string;
 }
-
-interface CSEThumbnail {
-	src: string;
-	width: string;
-	height: string;
-}
-
 interface Queries {
 	request: NextPage[];
 	nextPage: NextPage[];

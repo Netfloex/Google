@@ -6,7 +6,7 @@ import { search } from "@api";
 
 const Search: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ res, query }) => {
 	if (!res) {
-		return <></>;
+		return <>Geen respons {JSON.stringify({ res, query })}</>;
 	}
 
 	return (
@@ -24,23 +24,25 @@ const Search: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ res,
 					<DarkModeSwitch />
 				</div>
 			</div>
-			{res.query.totalResults} resultaten in {res.query.searchTime} seconden
-			<br />
-			{res.query.corrected && (
-				<>
-					<br />
-					Bedoelde u: <Link href={res.query.corrected}>{res.query.corrected}</Link>
-					<br />
-				</>
-			)}
-			<br />
-			{res.results &&
-				res.results.map((item, i) => (
-					<Result //
-						item={item}
-						key={item.cacheId || i}
-					/>
-				))}
+			<div className="p-4 flex items-center">
+				<div className="w-24 mx-4"></div>
+				<div className="flex-1">
+					<div className="text-sm">
+						{res.query.totalResults} resultaten in {res.query.searchTime} seconden
+					</div>
+					<div>
+						{res.query.corrected && (
+							<>
+								Bedoelde je:
+								<Link href={res.query.corrected}>
+									<a className="font-bold italic"> {res.query.corrected}</a>
+								</Link>
+							</>
+						)}
+					</div>
+				</div>
+			</div>
+			{res.results && res.results.map((item, i) => <Result item={item} key={item.cacheId || i} />)}
 		</Page>
 	);
 };
