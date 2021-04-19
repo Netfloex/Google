@@ -6,6 +6,7 @@ module.exports = {
 	experimental: {
 		externalDir: true,
 	},
+	reactStrictMode: true,
 	webpack(config) {
 		config.module.rules.push({
 			test: /\.svg$/,

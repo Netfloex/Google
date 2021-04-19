@@ -52,7 +52,8 @@
                     "warn",
                     {
                         "allowExpressions": true,
-                        "allowConciseArrowFunctionExpressionsStartingWithVoid": true
+                        "allowConciseArrowFunctionExpressionsStartingWithVoid": true,
+                        "allowTypedFunctionExpressions": true
                     }
                 ]
             }

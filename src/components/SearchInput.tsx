@@ -10,7 +10,7 @@ const SearchInput: FC = () => {
 
 	const keyDown: KeyboardEventHandler = event => {
 		if (event.key == "Enter" && input.current) {
-			router.push("/search?q=" + input.current.value);
+			router.push("/search/" + input.current.value);
 		}
 	};
 	return <input autoFocus type="text" ref={input} className="search-input" onKeyDown={keyDown} />;

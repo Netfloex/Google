@@ -4,9 +4,9 @@ import Logo from "../svg/google.svg";
 import DarkModeSwitch from "../components/DarkModeSwitch";
 import SearchInput from "../components/SearchInput";
 
-import { FC } from "react";
+import { NextPage } from "next";
 
-const Home: FC = () => (
+const Home: NextPage = () => (
 	<>
 		<Head>
 			<title>Google Proxy</title>
