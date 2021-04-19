@@ -3,7 +3,7 @@ import { MdBrightnessHigh as Sun, MdBrightness3 as Moon } from "react-icons/md";
 
 import { FC } from "react";
 
-const DarkModeSwitch: FC = () => {
+export const DarkModeSwitch: FC = () => {
 	const { theme, setTheme } = useTheme();
 	return (
 		<div>
@@ -22,5 +22,3 @@ const DarkModeSwitch: FC = () => {
 		</div>
 	);
 };
-
-export default DarkModeSwitch;

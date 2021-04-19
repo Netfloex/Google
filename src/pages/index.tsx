@@ -1,16 +1,11 @@
-import Head from "next/head";
 import Logo from "../svg/google.svg";
 
-import DarkModeSwitch from "../components/DarkModeSwitch";
-import SearchInput from "../components/SearchInput";
+import { Page, DarkModeSwitch, SearchInput } from "@components";
 
 import { NextPage } from "next";
 
 const Home: NextPage = () => (
-	<>
-		<Head>
-			<title>Google Proxy</title>
-		</Head>
+	<Page title="Google Search" description="Custom Google Search">
 		<DarkModeSwitch />
 		<div className="text-center">
 			<div className="mt-40">
@@ -20,6 +15,6 @@ const Home: NextPage = () => (
 				<SearchInput />
 			</div>
 		</div>
-	</>
+	</Page>
 );
 export default Home;

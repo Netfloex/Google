@@ -1,17 +1,15 @@
 import { InferGetStaticPropsType, NextPage, GetStaticPropsContext, GetStaticPaths } from "next";
 import Link from "next/link";
 
-import DarkModeSwitch from "../../components/DarkModeSwitch";
-
-import { search } from "../../api/google";
-import SearchInput from "../../components/SearchInput";
+import { Page, DarkModeSwitch, SearchInput } from "@components";
+import { search } from "@api";
 
 const Search: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ res }) => {
 	if (!res) {
 		return <></>;
 	}
 	return (
-		<>
+		<Page title={`${res.queries.request[0].searchTerms} - Zoeken`} description={"Custom Google Search"}>
 			<DarkModeSwitch />
 			<div className="w-32">
 				<SearchInput />
@@ -42,7 +40,7 @@ const Search: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ res 
 						</a>
 					</Link>
 				))}
-		</>
+		</Page>
 	);
 };
 

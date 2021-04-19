@@ -4,7 +4,7 @@ import { KeyboardEventHandler, useRef } from "react";
 
 import { FC } from "react";
 
-const SearchInput: FC = () => {
+export const SearchInput: FC = () => {
 	const router = useRouter();
 	const input = useRef<HTMLInputElement>(null);
 
@@ -15,4 +15,3 @@ const SearchInput: FC = () => {
 	};
 	return <input autoFocus type="text" ref={input} className="search-input" onKeyDown={keyDown} />;
 };
-export default SearchInput;
