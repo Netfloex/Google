@@ -1,5 +1,5 @@
-import { Request } from "../@types/googleRequest";
-import { Search } from "../@types/google";
+import { Request } from "@src/@types/googleRequest";
+import { Search } from "@src/@types/google";
 
 import axios from "axios";
 
