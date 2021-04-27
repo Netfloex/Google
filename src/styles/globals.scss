@@ -2,12 +2,6 @@ body {
 	@apply bg-gray-100 text-gray-900;
 }
 
-html,
-body,
-#__next {
-	@apply h-full;
-}
-
 .dark body {
 	@apply bg-background-dark text-gray-200;
 }
@@ -26,17 +20,16 @@ body,
 }
 
 .search-input {
-	@apply rounded-full w-full;
+	@apply rounded-2xl w-full;
 
 	@apply shadow-md;
 
-	@apply focus:border-blue-300 transition-colors;
+	@apply px-4 py-2;
+	@apply relative z-10;
+
 	@apply border-gray-200 border dark:border-secondary-dark;
 	@apply bg-transparent dark:bg-primary-dark;
-
-	@apply px-4 py-2;
-
-	@apply flex items-center;
+	transition: border 0.1s;
 
 	input {
 		@apply flex-grow;

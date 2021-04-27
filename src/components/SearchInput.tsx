@@ -10,7 +10,8 @@ import { Suggestions } from "@components";
 export const SearchInput: FC<{ className?: string; value?: string }> = ({ className, value }) => {
 	const router = useRouter();
 	const input = useRef<HTMLInputElement>(null);
-	const [query, updateQuery] = useState(value);
+
+	const [query, updateCompletion] = useState<string | undefined>("");
 
 	const keyDown: KeyboardEventHandler = (event) => {
 		if (event.key == "Enter") {
@@ -19,28 +20,33 @@ export const SearchInput: FC<{ className?: string; value?: string }> = ({ classN
 	};
 
 	const change: ChangeEventHandler = () => {
-		updateQuery(input?.current?.value);
+		updateCompletion(input?.current?.value);
 	};
 
 	const search = (): void => {
-		if (input.current?.value) router.push("/search/" + input.current.value);
+		if (input.current?.value) {
+			updateCompletion("");
+			router.push("/search/" + input.current.value);
+		}
 	};
 
 	return (
 		<div className={`search-input ${className ?? ""}`.trim()}>
-			<input
-				autoFocus
-				spellCheck={false}
-				type="text"
-				ref={input}
-				defaultValue={value}
-				onKeyDown={keyDown}
-				onChange={change}
-			/>
+			{/* <div className="absolute"> */}
+			<div className="flex items-center">
+				<input
+					autoFocus
+					spellCheck={false}
+					type="text"
+					ref={input}
+					defaultValue={value}
+					onKeyDown={keyDown}
+					onChange={change}
+				/>
 
+				<FiSearch onClick={search} className="cursor-pointer" />
+			</div>
 			<Suggestions query={query} />
-			<div className="mx-3"></div>
-			<FiSearch onClick={search} className="cursor-pointer" />
 		</div>
 	);
 };
