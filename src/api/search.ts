@@ -1,6 +1,7 @@
 import { Request } from "@src/@types/googleRequest";
 import { Search } from "@src/@types/google";
 
+import Cache from "@src/cache/helper";
 import axios from "axios";
 
 const request = axios.create({
@@ -21,12 +22,18 @@ const request = axios.create({
 	},
 });
 
+const cache = new Cache<Search>("search");
+
 export const search = async (query: string): Promise<Search> => {
+	if (cache.has(query)) {
+		return cache.get(query);
+	}
+
 	const { data }: { data: Request } = await request({
 		params: { q: query },
 	});
 
-	return {
+	const search: Search = {
 		query: {
 			search: data.queries.request[0].searchTerms,
 			corrected: data.spelling?.correctedQuery ?? null,
@@ -44,4 +51,5 @@ export const search = async (query: string): Promise<Search> => {
 				pageMap: item.pagemap ?? null,
 			})),
 	};
+	return cache.set(query, search);
 };

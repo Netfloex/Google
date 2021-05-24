@@ -7,7 +7,6 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start -p 10100",
-		"pretify": "prettier --write .",
 		"types": "tsc --noEmit",
 		"lint": "eslint src",
 		"test": "yarn types && yarn lint"
@@ -24,7 +23,8 @@
 		"react-dom": "^17.0.2",
 		"react-icons": "^4.2.0",
 		"sass": "^1.32.10",
-		"swr": "^0.5.5"
+		"swr": "^0.5.5",
+		"uuid-by-string": "^3.0.2"
 	},
 	"devDependencies": {
 		"@types/node": "^14.14.41",

@@ -29,7 +29,6 @@ body {
 
 	@apply border-gray-200 border dark:border-secondary-dark;
 	@apply bg-transparent dark:bg-primary-dark;
-	transition: border 0.1s;
 
 	input {
 		@apply flex-grow;
