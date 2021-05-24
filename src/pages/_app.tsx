@@ -10,4 +10,5 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => (
 		<Component {...pageProps} />
 	</ThemeProvider>
 );
+
 export default App;

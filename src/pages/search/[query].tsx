@@ -59,8 +59,8 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
 	return {
 		props: {
 			query,
-			res,
-		},
+			res
+		}
 	};
 };
 

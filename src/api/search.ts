@@ -14,12 +14,12 @@ const request = axios.create({
 			"queries/request/searchTerms," +
 			"searchInformation(formattedSearchTime,formattedTotalResults)," +
 			"spelling/correctedQuery," +
-			"items(title,link,formattedUrl,snippet,cacheId,pagemap(cse_thumbnail/src))",
+			"items(title,link,formattedUrl,snippet,cacheId,pagemap(cse_thumbnail/src))"
 	},
 	baseURL: "https://content-customsearch.googleapis.com/customsearch/v1",
 	headers: {
-		"x-referer": "https://explorer.apis.google.com",
-	},
+		"x-referer": "https://explorer.apis.google.com"
+	}
 });
 
 const cache = new Cache<Search>("search");
@@ -30,7 +30,7 @@ export const search = async (query: string): Promise<Search> => {
 	}
 
 	const { data }: { data: Request } = await request({
-		params: { q: query },
+		params: { q: query }
 	});
 
 	const search: Search = {
@@ -38,7 +38,7 @@ export const search = async (query: string): Promise<Search> => {
 			search: data.queries.request[0].searchTerms,
 			corrected: data.spelling?.correctedQuery ?? null,
 			searchTime: data.searchInformation.formattedSearchTime,
-			totalResults: data.searchInformation.formattedTotalResults,
+			totalResults: data.searchInformation.formattedTotalResults
 		},
 		results: data.items
 			?.filter((item) => item.title != undefined)
@@ -48,8 +48,9 @@ export const search = async (query: string): Promise<Search> => {
 				displayLink: item.formattedUrl,
 				snippet: item.snippet,
 				cacheId: item.cacheId ?? null,
-				pageMap: item.pagemap ?? null,
-			})),
+				pageMap: item.pagemap ?? null
+			}))
 	};
+
 	return cache.set(query, search);
 };

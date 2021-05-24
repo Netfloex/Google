@@ -8,9 +8,9 @@ const request = axios.create({
 	params: {
 		client: "chrome",
 		gl: process.env.results_lang,
-		prettyPrint: false,
+		prettyPrint: false
 	},
-	baseURL: "https://suggestqueries.google.com/complete/search",
+	baseURL: "https://suggestqueries.google.com/complete/search"
 });
 
 const cache = new Cache<AutoComplete>("autoComplete");
@@ -21,13 +21,14 @@ export const autoComplete = async (query: string): Promise<AutoComplete> => {
 	}
 
 	const { data }: { data: Request } = await request({
-		params: { q: query },
+		params: { q: query }
 	});
 
 	const completion: AutoComplete = data[1].map((q, i) => ({
 		suggestion: q,
 		description: data[2][i],
-		type: data[4]["google:suggesttype"][i],
+		type: data[4]["google:suggesttype"][i]
 	}));
+
 	return cache.set(query, completion);
 };

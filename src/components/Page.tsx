@@ -11,7 +11,7 @@ import { FC } from "react";
 export const Page: FC<{ title: string; description: string }> = ({
 	title,
 	description,
-	children,
+	children
 }) => (
 	<>
 		<Head>
